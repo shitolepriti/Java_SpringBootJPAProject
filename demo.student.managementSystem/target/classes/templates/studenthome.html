@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet" href="css/Login.css">
+
+</head>
+<body>
+<h1>Login Here</h1>
+<form th:action="@{/loginstatus}" th:object="${studenthome}" method="post">
+<label for="username">Enter Username</label>
+<input type="text" placeholder="Username" name="username" th:field="*{username}">
+<br>
+<br>
+<label for="password">Enter Password</label>
+<input type="password" placeholder="Password" name="password" th:field="*{password}">
+<br>
+<br>
+<input type="submit">
+<a th:href="@{/studentReg}">New User? Register Here</a>
+<p th:if="${param.error}">Enter Valid Details</p>
+</form>
+</body>
+</html>

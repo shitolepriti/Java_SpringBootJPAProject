@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+<thead>
+<th>
+<th>Admin name</th>
+<tr th:each=" admin:${adminlist}">
+<td th:text="${admin.id}">Id</td>
+<td th:text="${admin.name}">Admin Name</td>
+<td>
+<form th:action="@{/admin/delete}" method="POST">
+<input type="hidden" name="id" th:value="${admin.id}">
+<button type="submit">delete</button>
+</form>
+</td>
+<td>
+<form th:action="@{/admin/edit}" method="get">
+<input type="hidden" name="id" th:value="${admin.id}">
+<button type="submit">Edit</button>
+</form>
+</td>
+
+</thead>
+</table>
+<tbody>
+
+<a th:href="@{/taskassign}">Add task</a>
+</body>
+</html>

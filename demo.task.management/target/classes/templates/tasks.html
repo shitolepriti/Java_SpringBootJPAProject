@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+<thead>
+<th>title</th>
+<th>taskdescription</th>
+<th>dueDate</th>
+<th>status</th>
+<tbody>
+<tr th:each=" task:${tasklist}">
+<td th:text="${task.id}">Id</td>
+<td th:text="${task.title}">title</td>
+<td th:text="${task.taskdescription}">task description</td>
+<td th:text="${task.dueDate}">dueDate</td>
+<td th:text="${task.status}">status</td>
+<td>
+<form th:action="@{/task/delete}" method="POST">
+<input type="hidden" name="id" th:value="${task.id}">
+<button type="submit">delete</button>
+</form>
+</td>
+<td>
+<form th:action="@{/task/edit}" method="get">
+<input type="hidden" name="id" th:value="${task.id}">
+<button type="submit">Edit</button>
+
+</form>
+</td>
+
+
+</tr>
+</tbody>
+
+</thead>
+</table>
+</body>
+</html>

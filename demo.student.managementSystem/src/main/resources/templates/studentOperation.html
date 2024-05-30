@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+<thead>
+<th>Roll Number</th>
+<th>Student Name</th>
+<th>Age</th>
+<th>Grade</th>
+<tbody>
+<tr th:each="student :${studentlist}">
+<td th:text="${student.id}">id</td>
+<td th:text="${student.rollnumber}">RollNumber</td>
+<td th:text="${student.name}">Student Name</td>
+<td th:text="${student.age}">Age</td>
+<td th:text="${student.grade}">Grade</td>
+<td th:text="${student.username}">Username</td>
+<td th:text="${student.password}">Password</td>
+
+
+<td>
+<form th:action="@{/student/delete}" method="get">
+<input type="hidden" name="id" th:value="${student.id}">
+<button type="submit">delete</button>
+</form>
+</td>
+<td>
+<form th:action="@{/student/edit}" method="GET">
+<input type="hidden" name="id" th:value="${student.id}">
+<button type="submit">Edit</button>
+
+</form>
+</td>
+</tr>
+</tbody>
+
+</thead>
+</table>
+
+</body>
+</html>
+
+

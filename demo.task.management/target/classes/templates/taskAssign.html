@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Task Assign</h1>
+	<form th:action="@{/taskstatus}"  th:object="${task}" method ="post">
+		<div>
+			<label for="title">title</label> 
+			<input type="text"placeholder="Enter Your title" name="title" th:field="*{title}">
+			<br>
+			<br>
+			<label for="taskdescription">task description</label> 
+			<input type="text"placeholder="Enter Your taskdescription" name="taskdescription" th:field="*{taskdescription}">
+			<span th:if="${#fields.hasErrors('taskdescription')}" th:errors="*{taskdescription}"></span>
+			<br>
+			<br>
+			
+			<label for="dueDate">dueDate</label> 
+			<input type="date"placeholder="Enter Your dueDate" name="dueDate" th:field="*{dueDate}">
+			<span th:if="${#fields.hasErrors('dueDate')}" th:errors="*{dueDate}"></span>
+			<br>
+			<br>
+			
+			<label for="status">status</label> 
+			<input type="text"placeholder="Enter Your status" name="status" th:field="*{status}">
+			<br>
+			<br>
+			
+
+			<input type="submit">
+			<p th:if="${param.error}">Enter Valid Details</p>
+		</div>
+
+	</form>
+</body>
+</html>
